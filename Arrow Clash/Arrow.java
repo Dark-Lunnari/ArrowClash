@@ -1,19 +1,39 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class Arrow here.
+ * ARROW
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author MATIAS GAUTHIER 
+ * 
  */
 public class Arrow extends Actor
 {
-    /**
-     * Act - do whatever the Arrow wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
-        // Add your action code here.
+        move(-15); 
+        deflect();
     }
+    // VAR RELATED TO WHEN THE PLAYER INTERACTS WITH ARROWS
+    
+    public static boolean boolContactArrow = false;
+    public static boolean boolBlockArrow = false; 
+    
+    // THIS METHOD IS INVOKED WHEN THE CHARACTER BLOCKS 
+    // ALSO USED WHEN THE ARROW TOUCHES TH PLAYER 
+    private void deflect() {  
+        if (isTouching(Player.class) && Player.block == true) {
+             getWorld().addObject(new DeflectedArrow(), getX(), getY());
+             boolBlockArrow = true; 
+             getWorld().removeObject(this);
+        }
+        else if (isTouching(Player.class)) {
+            boolContactArrow = true; 
+            getWorld().removeObject(this);
+        }
+        
+        else if (isAtEdge()) {
+            getWorld().removeObject(this);
+        }
+    }
+
 }
