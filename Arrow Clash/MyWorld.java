@@ -21,5 +21,7 @@ public class MyWorld extends World
         //Boss boss = new Boss();
         //addObject(boss,800,190);
         DeflectedArrow DeflectedArrow = new DeflectedArrow(); 
+        Boss boss = new Boss();
+        addObject(boss,758,182);
     }
 }

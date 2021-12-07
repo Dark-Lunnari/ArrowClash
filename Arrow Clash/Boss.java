@@ -13,6 +13,7 @@ public class Boss extends Actor
         fallingAction();
         contactArrow(); 
     }
+    
     // VAR RELATED TO SHOOTING 
     int shootingSpeed = 20;
     int randomTime = 250;

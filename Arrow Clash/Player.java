@@ -15,53 +15,30 @@ public class Player extends Actor
     protected SimpleTimer blockTimer =  new  SimpleTimer();
     public static boolean block = false;
     
-    private GreenfootImage Idle1;
-    private GreenfootImage Idle2;
-    private GreenfootImage Idle3;
-    private GreenfootImage Idle4;
-    private GreenfootImage Idle5;
-    private GreenfootImage Idle6;
-    private GreenfootImage Idle7;
-    private GreenfootImage Idle8;
-    private GreenfootImage Idle9;
-    private GreenfootImage Idle10;
-    private GreenfootImage IdleF1;
-    private GreenfootImage IdleF2;
-    private GreenfootImage IdleF3;
-    private GreenfootImage IdleF4;
-    private GreenfootImage IdleF5;
-    private GreenfootImage IdleF6;
-    private GreenfootImage IdleF7;
-    private GreenfootImage IdleF8;
-    private GreenfootImage IdleF9;
-    private GreenfootImage IdleF10;
-    private long time;
-    private long pauseTime;
-    public Player(){     
-        time = System.currentTimeMillis();
-        pauseTime = 0;
-        
-        Idle1 = new GreenfootImage("Idle1.png");
-        Idle2 =  new  GreenfootImage("Idle2.png");
-        Idle3 =  new  GreenfootImage("Idle3.png");
-        Idle4 =  new  GreenfootImage("Idle4.png");
-        Idle5 =  new  GreenfootImage("Idle5.png");
-        Idle6 =  new  GreenfootImage("Idle6.png");
-        Idle7 =  new  GreenfootImage("Idle7.png");
-        Idle8 =  new  GreenfootImage("Idle8.png");
-        Idle9 =  new  GreenfootImage("Idle9.png");
-        Idle10 =  new  GreenfootImage("Idle10.png");
-        IdleF1 =  new  GreenfootImage("IdleF1.png");
-        IdleF2 =  new  GreenfootImage("IdleF2.png");
-        IdleF3 =  new  GreenfootImage("IdleF3.png");
-        IdleF4 =  new  GreenfootImage("IdleF4.png");
-        IdleF5 =  new  GreenfootImage("IdleF5.png");
-        IdleF6 =  new  GreenfootImage("IdleF6.png");
-        IdleF7 =  new  GreenfootImage("IdleF7.png");
-        IdleF8 =  new  GreenfootImage("IdleF8.png");
-        IdleF9 =  new  GreenfootImage("IdleF9.png");
-        IdleF10 =  new  GreenfootImage("IdleF10.png");
-    }
+    private GreenfootImage Idle1 = new GreenfootImage("Idle1.png");
+    private GreenfootImage Idle2 = new GreenfootImage("Idle2.png");
+    private GreenfootImage Idle3 = new GreenfootImage("Idle3.png");
+    private GreenfootImage Idle4 = new GreenfootImage("Idle4.png");
+    private GreenfootImage Idle5 = new GreenfootImage("Idle5.png");
+    private GreenfootImage Idle6 = new GreenfootImage("Idle6.png");
+    private GreenfootImage Idle7 = new GreenfootImage("Idle7.png");
+    private GreenfootImage Idle8 = new GreenfootImage("Idle8.png");
+    private GreenfootImage Idle9 = new GreenfootImage("Idle9.png");
+    private GreenfootImage Idle10 = new GreenfootImage("Idle10.png");
+    
+    private GreenfootImage IdleF1 = new GreenfootImage("IdleF1.png");
+    private GreenfootImage IdleF2 = new GreenfootImage("IdleF2.png");
+    private GreenfootImage IdleF3 = new GreenfootImage("IdleF3.png");
+    private GreenfootImage IdleF4 = new GreenfootImage("IdleF4.png");
+    private GreenfootImage IdleF5 = new GreenfootImage("IdleF5.png");
+    private GreenfootImage IdleF6 = new GreenfootImage("IdleF6.png");
+    private GreenfootImage IdleF7 = new GreenfootImage("IdleF7.png");
+    private GreenfootImage IdleF8 = new GreenfootImage("IdleF8.png");
+    private GreenfootImage IdleF9 = new GreenfootImage("IdleF9.png");
+    private GreenfootImage IdleF10 = new GreenfootImage("IdleF10.png");
+    private int frameR = 1; 
+    private int frameL = 1; 
+    
     /**
      * 
      */
@@ -72,10 +49,6 @@ public class Player extends Actor
         gameOver();
         block();
         contactArrow();
-        pause(1000);
-        if(running()){
-            IdleRight();
-        }
     }
 
     /* UP, DOWN, LEFT RIGHT*/
@@ -87,94 +60,88 @@ public class Player extends Actor
     {
         if (Greenfoot.isKeyDown("a")) {
             move(-5);        
+            leftAnimation();
         }
         if (Greenfoot.isKeyDown("d")) {
-            move(5);            
+            move(5);
+            rightAnimation(); 
         }
         if (Greenfoot.isKeyDown("w") && getY() > getWorld().getHeight() - 100) {
             speed = -20;
         }                
     }
 
-    //Idle Animation
-    
-    public void IdleRight(){         
-        int timeDelay = 5000;
-        if (getImage() == Idle1 && (System.currentTimeMillis() > time ) ){            
-                setImage(Idle2); 
-            }else if (getImage() == Idle2 && (System.currentTimeMillis() > time + timeDelay)) {  
-                setImage(Idle3);
-            }
-            else if (getImage() == Idle3 && (System.currentTimeMillis() > time + 2*timeDelay)) {               
-                setImage(Idle4);                
-            }
-            else if (getImage() == Idle4 && (System.currentTimeMillis() > time + 3*timeDelay)){                    
-                setImage(Idle5);                    
-            }
-            else if (getImage() == Idle5 && (System.currentTimeMillis() > time + 4*timeDelay)){                    
-                setImage(Idle6);                    
-            }
-            
-            else if (getImage() == Idle6 && (System.currentTimeMillis() > time + 5*timeDelay)){                    
-                setImage(Idle7);                    
-            }
-            
-            else if (getImage() == Idle7 && (System.currentTimeMillis() > time + 6*timeDelay)){                    
-                setImage(Idle8);                    
-            }
-            
-            else if (getImage() == Idle8 && (System.currentTimeMillis() > time + 7*timeDelay)){                    
-                setImage(Idle9);
-            }
-            
-            else if (getImage() == Idle9 && (System.currentTimeMillis() > time + 8*timeDelay)){                    
-                setImage(Idle10);                    
-            }
-            else{
-                setImage(Idle1);
-            }
-    }
-    public boolean running()
-    {
-         long time1 = System.currentTimeMillis();
-         return time > pauseTime;
-    }
-    
-    public void pause(long delay)
-    {
-         long time1 = System.currentTimeMillis();
-         pauseTime = time+delay;
-    }
-
-
-    public void IdleLeft(){
-            if (getImage() == Idle1) {
-            setImage(IdleF1);
+    // ANIMATION RIGHT
+    public void rightAnimation() {
+        if (frameR == 2) {
+            setImage(Idle1); 
         }
-        else {
-            if (getImage() == IdleF2) {
-                setImage(IdleF3);
-            }
-            else {
-                if (getImage() == IdleF4) {
-                    setImage(IdleF5);
-                }
-                else {
-                    if (getImage() == IdleF6){
-                    setImage(IdleF7);
-                }
-                else{
-                    if (getImage() == IdleF8){
-                        setImage(IdleF9);
-                    }
-                    else{
-                        setImage(Idle1);
-                    }
-                }
-            }
-        }        
+        else if (frameR == 4) {
+            setImage(Idle2);
+        }
+        else if (frameR == 6) {
+            setImage(Idle3);
+        }
+        else if (frameR == 8) {
+            setImage(Idle4);
+        }
+        else if (frameR == 10) {
+            setImage(Idle5);
+        }
+        else if (frameR == 12) {
+            setImage(Idle6);
+        }
+        else if (frameR == 14) {
+            setImage(Idle7);
+        }
+        else if (frameR == 16) {
+            setImage(Idle8);
+        }
+        else if (frameR == 18) {
+            setImage(Idle9);
+        }
+        else if (frameR == 20) {
+            setImage(Idle10);
+            frameR = 0; 
+        }
+        frameR++; 
     }
-}
+    
+    // ANIMATION LEFT
+    public void leftAnimation() {
+        if (frameL == 2) {
+            setImage(IdleF1); 
+        }
+        else if (frameL == 4) {
+            setImage(IdleF2);
+        }
+        else if (frameL == 6) {
+            setImage(IdleF3);
+        }
+        else if (frameL == 8) {
+            setImage(IdleF4);
+        }
+        else if (frameL == 10) {
+            setImage(IdleF5);
+        }
+        else if (frameL == 12) {
+            setImage(IdleF6);
+        }
+        else if (frameL == 14) {
+            setImage(IdleF7);
+        }
+        else if (frameL == 16) {
+            setImage(IdleF8);
+        }
+        else if (frameL == 18) {
+            setImage(IdleF9);
+        }
+        else if (frameL == 20) {
+            setImage(IdleF10);
+            frameL = 0; 
+        }
+        frameL++; 
+    }
     
     /* BLOCK ARROWS*/
 
