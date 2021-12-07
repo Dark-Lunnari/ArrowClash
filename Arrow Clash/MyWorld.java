@@ -18,8 +18,8 @@ public class MyWorld extends World
     {
         Player player = new Player();
         addObject(player,90, getHeight() - 100);
-        Boss boss = new Boss();
-        addObject(boss,800,190);
+        //Boss boss = new Boss();
+        //addObject(boss,800,190);
         DeflectedArrow DeflectedArrow = new DeflectedArrow(); 
     }
 }
