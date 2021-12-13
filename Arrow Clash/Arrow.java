@@ -8,6 +8,7 @@ import greenfoot.GreenfootImage;
  */
 public class Arrow extends Actor
 {
+
     private GreenfootImage Arrow1 = new GreenfootImage("Arrow1.png");
     private GreenfootImage Arrow2 = new GreenfootImage("Arrow2.png");
     private GreenfootImage Arrow3 = new GreenfootImage("Arrow3.png");
@@ -18,7 +19,7 @@ public class Arrow extends Actor
     {
         move(-15);        
         deflect();
-        animation(); 
+        animation();
     }
 
     // ANIMATION

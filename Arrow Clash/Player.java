@@ -14,7 +14,7 @@ public class Player extends Actor
     /* TIMER RELATED TO THE BLOCKING PERIOD*/
     protected SimpleTimer blockTimer =  new  SimpleTimer();
     public static boolean block = false;
-    
+
     private GreenfootImage Idle1 = new GreenfootImage("Idle1.png");
     private GreenfootImage Idle2 = new GreenfootImage("Idle2.png");
     private GreenfootImage Idle3 = new GreenfootImage("Idle3.png");
@@ -105,8 +105,9 @@ public class Player extends Actor
             frameR = 0; 
         }
         frameR++; 
-    }
-    
+
+        }
+
     // ANIMATION LEFT
     public void leftAnimation() {
         if (frameL == 2) {
@@ -142,7 +143,7 @@ public class Player extends Actor
         }
         frameL++; 
     }
-    
+
     /* BLOCK ARROWS*/
 
     /**
