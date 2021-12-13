@@ -6,13 +6,9 @@ import greenfoot.*;
  * @author MATIAS GAUTHIER
  * 
  */
-public class MyWorld extends World
+public class MyWorldlvl2 extends World
 {
-    //private GreenfootImage Heart = new GreenfootImage("Heart.png");
-    //private GreenfootImage EmptyHeart = new GreenfootImage("Empty Heary.png");
-    
-    //private int lives = 3;
-    public MyWorld()
+    public MyWorldlvl2()
     {    
         super(900, 300, 1); 
         prepare();
@@ -31,18 +27,14 @@ public class MyWorld extends World
         Grass grass2 = new Grass();
         addObject(grass2,690,299);
         BowArrow bowArrow = new BowArrow();
-        addObject(bowArrow,839,181);
+        addObject(bowArrow,842,190);
+        BowArrow bowArrow2 = new BowArrow();
+        addObject(bowArrow2,726,201);
     }
     
     public void act(){       
         if (Greenfoot.getRandomNumber(45) < 1) {
             addObject( new  Grass(), 779, 359);
         }
+      }
     }
-    
-    //public void Lives(){
-        //for (int i = 0; i < lives; i++) {
-            //setImage(Heart, 300 + i*60, 320);
-}
-    
-

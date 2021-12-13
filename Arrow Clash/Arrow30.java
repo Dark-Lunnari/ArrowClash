@@ -6,11 +6,11 @@ import greenfoot.GreenfootImage;
  * @author MATIAS GAUTHIER 
  * 
  */
-public class Arrow extends Actor
+public class Arrow30 extends Actor
 {
 
     private GreenfootImage Arrow1 = new GreenfootImage("Arrow1.png");
-    private GreenfootImage Arrow2 = new GreenfootImage("Arrow2.png");
+    private GreenfootImage Arrow30 = new GreenfootImage("Arrow30.png");
     private GreenfootImage Arrow3 = new GreenfootImage("Arrow3.png");
     private GreenfootImage Arrow4 = new GreenfootImage("Arrow4.png");
     private int frame = 1; 
@@ -28,7 +28,7 @@ public class Arrow extends Actor
             setImage(Arrow1); 
         }
         else if (frame == 4) {
-            setImage(Arrow2);
+            setImage(Arrow30);
         }
         else if (frame == 6) {
             setImage(Arrow3);
@@ -63,7 +63,9 @@ public class Arrow extends Actor
         }
         if (isTouching(BowArrow.class)) {
             removeTouching(BowArrow.class);
-            Greenfoot.setWorld(new MyWorldlvl2());
+        }
+        if (isTouching(Boss.class)) {
+            removeTouching(Boss.class);
         }
     }
 }    

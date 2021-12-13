@@ -6,7 +6,7 @@ import greenfoot.GreenfootImage;
  * @author MATIAS GAUTHIER 
  * 
  */
-public class Arrow extends Actor
+public class Arrow2 extends Actor
 {
 
     private GreenfootImage Arrow1 = new GreenfootImage("Arrow1.png");
@@ -55,15 +55,15 @@ public class Arrow extends Actor
         }
         else if (isTouching(Player.class)) {
             boolContactArrow = true; 
-            getWorld().removeObject(this);
+            //getWorld().removeObject(this);
         }
         
         else if (isAtEdge()) {
             getWorld().removeObject(this);
         }
-        if (isTouching(BowArrow.class)) {
-            removeTouching(BowArrow.class);
-            Greenfoot.setWorld(new MyWorldlvl2());
+        if (isTouching(BowArrow2.class)) {
+            removeTouching(BowArrow2.class);
+            Greenfoot.setWorld(new MyWorldlvl3());
         }
     }
 }    

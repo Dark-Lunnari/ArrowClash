@@ -36,8 +36,14 @@ public class Player extends Actor
     private GreenfootImage IdleF8 = new GreenfootImage("IdleF8.png");
     private GreenfootImage IdleF9 = new GreenfootImage("IdleF9.png");
     private GreenfootImage IdleF10 = new GreenfootImage("IdleF10.png");
+    
+    private GreenfootImage Block1 = new GreenfootImage("Block1.png");
+    private GreenfootImage Block2 = new GreenfootImage("Block2.png");
+    
     private int frameR = 1; 
     private int frameL = 1; 
+    
+    private int lives = 3;
     
     /**
      * 
@@ -59,16 +65,15 @@ public class Player extends Actor
     public void move()
     {
         if (Greenfoot.isKeyDown("a")) {
-            move(-5);        
-            leftAnimation();
+            move(-5);                    
         }
         if (Greenfoot.isKeyDown("d")) {
-            move(5);
-            rightAnimation(); 
+            move(5);        
         }
         if (Greenfoot.isKeyDown("w") && getY() > getWorld().getHeight() - 100) {
             speed = -20;
-        }                
+        }
+        rightAnimation(); 
     }
 
     // ANIMATION RIGHT
@@ -151,16 +156,25 @@ public class Player extends Actor
      */
     public void block()
     {
-        if (Greenfoot.isKeyDown("space") && blockTimer.millisElapsed() > 200) {
+            if (Greenfoot.isKeyDown("space") && blockTimer.millisElapsed() > 200) {
             block = true;
             blockTimer.mark();
-        }
-        if (blockTimer.millisElapsed() > 100) {
+            blockAnimation();        
+            if (blockTimer.millisElapsed() > 100) {
             block = false;
         }
+        }
     }
-
     /* IMPLEMENTATION OF GRAVITY*/
+    
+    public void blockAnimation(){
+            if (frameL == 2) {
+            setImage(Block1); 
+        }
+            else if (frameL == 4) {
+            setImage(Block2);
+        }
+    }
 
     /**
      * 
@@ -193,6 +207,8 @@ public class Player extends Actor
             Arrow.boolBlockArrow = false;
         }
     }
+    
+    
 
     /* CONDITION REQUIRED FOR THE PLAYER TO LOOSE*/
 

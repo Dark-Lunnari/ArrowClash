@@ -2,12 +2,12 @@ import greenfoot.*;
 import greenfoot.GreenfootImage;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BowArrow here.
+ * Write a description of class BowArrow2 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BowArrow extends Actor
+public class BowArrow2 extends Actor
 {
     private GreenfootImage Bowm1 = new GreenfootImage("Bowman 1.png");
     private GreenfootImage Bowm2 = new GreenfootImage("Bowman 2.png");
@@ -22,7 +22,7 @@ public class BowArrow extends Actor
     
     private int frameR = 1;
     /**
-     * Act - do whatever the BowArrow wants to do. This method is called whenever
+     * Act - do whatever the BowArrow2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
@@ -84,7 +84,7 @@ public class BowArrow extends Actor
     // DETERMINES WHEN AND WHERE THE ARROW WILL BE SHOT 
     public void randomShooting() {
         if (arrowTimer.millisElapsed() > timeBetweenShots + Greenfoot.getRandomNumber(randomTime)) {
-            getWorld().addObject(new Arrow(), getX(), getY() - Greenfoot.getRandomNumber(randomHeight));
+            getWorld().addObject(new Arrow2(), getX(), getY() - Greenfoot.getRandomNumber(randomHeight));
             arrowTimer.mark(); 
         }
     }
